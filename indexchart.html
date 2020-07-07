@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://example.com/example-framework.js"
+        integrity="sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC"
+        crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="leaflet.css" />
+    <script src="Leaflet.jss"></script>
+    <style>
+        #mapid { 
+            height: 180px; 
+        }
+
+   </style>
+    <title>Covid Map</title>
+</head>
+<body>
+    <h1>Covid API Map</h1>
+    <div id="mapid"></div>
+    <script>
+       const mapboxAccessToken = {pk.eyJ1IjoibWltem8iLCJhIjoiY2tjYjU3YndoMjFwajJzcW9uZjBuMGJseCJ9.L8eQpaE7vx0nhbTt99ApBg};
+       const map = L.map('map').setView([37.8, -96], 4);
+       const api_url = "https://leafletjs.com/examples/choropleth/us-states.js";
+       const attribution = '&copy; '
+
+       const tileUrl = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=' + mapboxAccessToken, {
+            id: 'mapbox/light-v9', {attribution:}, tileSize: 512, zoomOffset: -1,
+        }).addTo(map);
+
+        L.geoJson(statesData).addTo(map);
+
+
+    </script>
+</body>
+</html>
