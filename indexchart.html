@@ -9,7 +9,7 @@
     <!--map height set -->
     <style>
         #mapid {                                
-            height: 180px; 
+            height: 500px; 
         }
    </style>
    <title>Covid Map</title>
@@ -62,7 +62,116 @@
                     const data = await response.json();
                     const {latitude, longitude } = data;
                 }
-            
+//event listener for layer mouseover
+        function highlightFeature(e) {
+            const layer = e.target;
+            layer.setStyle({
+                weight: 5,
+                color: '#666',
+                dashArray: '',
+                fillOpacity: 0.7
+            });
+        
+            if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+                layer.bringToFront();
+            }
+        }
+//mouseoutevent will reset layer style to default        
+        function resetHighlight(e) {
+            geojson.resetStyle(e.target);
+        }
+
+// ... our listeners
+        const geojson = L.geoJson ();
+//click listener that will zoom into each state
+        function zoomToFeature(e) {
+            map.fitBounds(e.target.getBounds());
+        }
+//listeners added to state layers, onhover states will highlight, other interactions can be added here
+        function onEachFeature(feature, layer) {
+            layer.on({
+                mouseover: highlightFeature,
+                mouseout: resetHighlight,
+                click: zoomToFeature
+            });
+        }
+
+        geojson = L.geoJson(statesData, {
+            style: style,
+            onEachFeature: onEachFeature
+        }).addTo(map);
+//state stats to be shown on hover
+        const info = L.control();
+
+        info.onAdd = function (map) {
+            this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+            this.update();
+            return this._div;
+        };
+
+        // method that we will use to update the control based on feature properties passed
+        info.update = function (props) {
+            this._div.innerHTML = '<h4>US Population Density</h4>' +  (props ?
+                '<b>' + props.name + '</b><br />' + props.density + ' people / mi<sup>2</sup>'
+                : 'Hover over a state');
+        };
+
+        info.addTo(map);
+
+        function highlightFeature(e) {
+            "..."  //added quotes, line kept erroing out without quotes
+            info.update(layer.feature.properties);
+        }
+
+        function resetHighlight(e) {
+            "..."  //added quotes, line kept erroing out without quotes
+            info.update();
+        }
+        //CSS FOR CONTROL
+        //.info {
+        //    padding: 6px 8px;
+        //    font: 14px/16px Arial, Helvetica, sans-serif;
+        //    background: white;
+        //    background: rgba(255,255,255,0.8);
+        //    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        //    border-radius: 5px;
+        //}
+        //.info h4 {
+        //    margin: 0 0 5px;
+        //    color: #777;
+        //}
+        const legend = L.control({position: 'bottomright'});
+
+        legend.onAdd = function (map) {
+
+            const div = L.DomUtil.create('div', 'info legend'),
+                grades = [0, 10, 20, 50, 100, 200, 500, 1000],
+                labels = [];
+
+            // loop through our density intervals and generate a label with a colored square for each interval
+            for (var i = 0; i < grades.length; i++) {
+                div.innerHTML +=
+                    '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+                    grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+            }
+        
+            return div;
+        };
+
+        legend.addTo(map);
+        //additional css style for control
+            //        .legend {
+            //    line-height: 18px;
+            //    color: #555;
+            //}
+            //.legend i {
+            //    width: 18px;
+            //    height: 18px;
+            //    float: left;
+            //    margin-right: 8px;
+            //    opacity: 0.7;
+            //}
+            //
     </script>
 </body>
 </html>
