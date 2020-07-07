@@ -3,13 +3,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--css loaded -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-        crossorigin=""/>
+    <link rel="stylesheet" href="leaflet.css"/>
     <!--js library loaded -->
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-        crossorigin=""></script>
+    <script src="leaflet.js"></script>
     <!--map height set -->
     <style>
         #mapid {                                
@@ -25,14 +21,16 @@
     <!--map initialization -->
     <script>
         //Map box token
-        const mapboxAccessToken = {pk.eyJ1IjoibWltem8iLCJhIjoiY2tjYjU1Y3ZvMDUzMDJ3cWUyeGxuZ2Q5diJ9.R3luBOXdjbr1uXs6bLWlDg};
+        const mapboxAccessToken = "pk.eyJ1IjoibWltem8iLCJhIjoiY2tjYjU1Y3ZvMDUzMDJ3cWUyeGxuZ2Q5diJ9.R3luBOXdjbr1uXs6bLWlDg";
         //set map longitude and latitude
-        const map = L.map('map').setView([37.8, -96], 4);  
+        const map = L.map('mapid').setView([37.8, -96], 4);  
+        
         L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=' + mapboxAccessToken, {
             id: 'mapbox/light-v9',
-            attribution: (),
+            attribution: "...",
             tileSize: 512,
-            zoomOffset: -1
+            zoomOffset: -1,
+            accessToken: mapboxAccessToken
         }).addTo(map);
 
         L.geoJson(statesData).addTo(map);
