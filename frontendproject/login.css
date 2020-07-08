@@ -1,0 +1,120 @@
+* {
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+    font-family: 'Work Sans';
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+}
+
+button:focus {
+    outline: none;
+}
+
+input:focus {
+    outline: none;
+}
+
+.logincontainer {
+    height: 80vh;
+    width: 80%;
+    background-color: #e2f3f5;
+    border-radius: 40px;
+    box-shadow: #dddddd 2px 40px 25px,
+        #eeeeee -1px -0px 15px;
+    position: relative;
+    left: 10%;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 80%;
+}
+
+.logincontainer>.left {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    left: 12%;
+    top: 200px;
+}
+
+.logincontainer>.left>h1 {
+    font-size: 40px;
+    color: #581B98;
+    font-weight: bold;
+    position: relative;
+    bottom: 50px;
+}
+
+.logincontainer>.left>.block {
+    height: 3px;
+    width: 100%;
+    background-color: #581B98;
+}
+
+.logincontainer>.left>.loginform {
+    position: absolute;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 90px;
+}
+
+.logincontainer>.left>.loginform>form>input {
+    width: 440px;
+    height: 50px;
+    border: 1px solid #414141;
+    border-radius: 5px;
+    padding-left: 10px;
+    font-size: 18px;
+}
+
+.logincontainer>.left>.loginform>form>input::placeholder {
+    color: #581B98;
+    position: relative;
+}
+
+.logincontainer>.help {
+    position: absolute;
+    bottom: 25%;
+    left: 9.5%;
+    display: flex;
+    list-style: none;
+}
+
+.logincontainer>.help>li {
+    margin: 0 35px;
+}
+
+.loginbutton {
+    position: absolute;
+    bottom: 10%;
+    left: 20%;
+    border: none;
+    border-radius: 40px;
+    background-color: #581B98;
+    color: white;
+    font-weight: bold;
+    font-size: 19px;
+    padding: 10px;
+    height: 50px;
+    width: 200px;
+}
+
+.logincontainer>.right {
+    background-color: #581B98;
+    height: 80vh;
+    width: 40%;
+    position: absolute;
+    right: 0;
+    border-radius: 0 40px 40px 0px;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
