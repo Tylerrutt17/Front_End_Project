@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="leaflet.css"/>
     <!--js library loaded -->
     <script src="leaflet.js"></script>
+    <!--import states data----->
+    <script src="https://leafletjs.com/examples/choropleth/us-states.js" ></script>
     <!--map height set -->
     <style>
         #mapid {                                
@@ -20,7 +22,7 @@
     <!--div element for map location -->
     <div id="mapid"></div>
         <!-- Fetch functions states and covid data-->
-        <script src='fetchApiFunc.js'></script>
+        <script src="main.js" type="module"></script>
         <!--map initialization -->
         <script src='map.js'></script>
     </script>
