@@ -1,6 +1,8 @@
 //Map box token
 const mapboxAccessToken = "pk.eyJ1IjoibWltem8iLCJhIjoiY2tjYjU1Y3ZvMDUzMDJ3cWUyeGxuZ2Q5diJ9.R3luBOXdjbr1uXs6bLWlDg";
 //set map longitude and latitude
+export default (data) => {
+
 const map = L.map('mapid').setView([37.8, -96], 4);  
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=' + mapboxAccessToken, {
@@ -11,21 +13,22 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     accessToken: mapboxAccessToken
 }).addTo(map);
 
-L.geoJson(statesData).addTo(map);
+L.geoJson(data).addTo(map);
 
 function getColor(d) {
-    return d > 40000 ? '#810f7c' :
-    d > 20000  ? '#88419d' :
-    d > 10000  ? '#8c6bb1' :
-    d > 5000  ? '#8c96c6' :
-    d > 1000   ? '#9ebcda' :
-    d > 500   ? '#bfd3e6' :
+    console.log(d)
+    return d > 400 ? '#810f7c' :
+    d > 200  ? '#88419d' :
+    d > 100  ? '#8c6bb1' :
+    d > 50  ? '#8c96c6' :
+    d > 10   ? '#9ebcda' :
+    d > 5   ? '#bfd3e6' :
     d > 0   ? '#bfd3e6' :
                '#FFEDA0';
 }
 function style(feature) {
     return {
-        fillColor: getColor(feature.properties.density),
+        fillColor: getColor(feature.properties.deaths),
         weight: 2,
         opacity: 1,
         color: 'white',
@@ -60,7 +63,7 @@ function resetHighlight(e) {
 }
 
 // ... our listeners
-const geojson = L.geoJson ();
+let geojson = L.geoJson ();
 //click listener that will zoom into each state
 function zoomToFeature(e) {
     map.fitBounds(e.target.getBounds());
@@ -99,6 +102,7 @@ info.update = function (props) {
 info.addTo(map);
 
 function highlightFeature(e) {
+    const layer = e.target;
     "..."  //added quotes, line kept erroing out without quotes
     info.update(layer.feature.properties);
 }
@@ -151,4 +155,4 @@ legend.addTo(map);
     //    margin-right: 8px;
     //    opacity: 0.7;
     //}
-    //
+}

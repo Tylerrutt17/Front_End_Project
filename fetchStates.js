@@ -20,9 +20,10 @@ export default function fetchStates(callback) {
                  //console.log(stat)
              }
              //console.log(modItem)
-             return modItem
+             //return modItem.properties = modItem.properties.filter(p=>p)
         })
         //console.log(results)
+        results = results.filter(r=>r)
         callback(results)
     })
 }
