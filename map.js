@@ -14,13 +14,13 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 L.geoJson(statesData).addTo(map);
 
 function getColor(d) {
-    return d > 40000 ? '#084594' :
-    d > 20000  ? '#2171b5' :
-    d > 10000  ? '#4292c6' :
-    d > 5000  ? '#6baed6' :
-    d > 1000   ? '#9ecae1' :
-    d > 500   ? '#c6dbef' :
-    d > 0   ? '#eff3ff' :
+    return d > 40000 ? '#810f7c' :
+    d > 20000  ? '#88419d' :
+    d > 10000  ? '#8c6bb1' :
+    d > 5000  ? '#8c96c6' :
+    d > 1000   ? '#9ebcda' :
+    d > 500   ? '#bfd3e6' :
+    d > 0   ? '#bfd3e6' :
                '#FFEDA0';
 }
 function style(feature) {
@@ -30,7 +30,7 @@ function style(feature) {
         opacity: 1,
         color: 'white',
         dashArray: '3',
-        fillOpacity: 0.7
+        fillOpacity: 0.9
     };
 }
 
@@ -140,7 +140,7 @@ legend.onAdd = function (map) {
 
 legend.addTo(map);
 //additional css style for control
-    //.legend {
+    //        .legend {
     //    line-height: 18px;
     //    color: #555;
     //}
