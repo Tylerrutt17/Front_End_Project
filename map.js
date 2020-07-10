@@ -58,7 +58,9 @@ function highlightState(e) {
     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
         layer.bringToFront();
     }
+    info.update(layer.feature.properties);
 }
+
 
 //mouseoutevent will reset layer style to default        
 function resetHighlight(e) {
