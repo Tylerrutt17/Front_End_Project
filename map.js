@@ -17,18 +17,18 @@ L.geoJson(data).addTo(map);
 
 function getColor(d) {
     console.log(d)
-    return d > 400 ? '#810f7c' :
-    d > 200  ? '#88419d' :
-    d > 100  ? '#8c6bb1' :
-    d > 50  ? '#8c96c6' :
-    d > 10   ? '#9ebcda' :
-    d > 5   ? '#bfd3e6' :
+    return d > 40000 ? '#810f7c' :
+    d > 20000  ? '#88419d' :
+    d > 10000  ? '#8c6bb1' :
+    d > 5000  ? '#8c96c6' :
+    d > 1000   ? '#9ebcda' :
+    d > 500   ? '#bfd3e6' :
     d > 0   ? '#bfd3e6' :
                '#FFEDA0';
 }
 function style(feature) {
     return {
-        fillColor: getColor(feature.properties.deaths),
+        fillColor: getColor(feature.properties.positiveCases),
         weight: 2,
         opacity: 1,
         color: 'white',
@@ -48,9 +48,9 @@ function highlightFeature(e) {
     const layer = e.target;
     layer.setStyle({
         weight: 5,
-        color: '#666',
+        color: '#525252',
         dashArray: '',
-        fillOpacity: 0.7
+        fillOpacity: 0.9
     });
 
     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
@@ -64,10 +64,12 @@ function resetHighlight(e) {
 
 // ... our listeners
 let geojson = L.geoJson ();
+
 //click listener that will zoom into each state
 function zoomToFeature(e) {
     map.fitBounds(e.target.getBounds());
 }
+
 //listeners added to state layers, onhover states will highlight, other interactions can be added here
 function onEachFeature(feature, layer) {
     layer.on({
@@ -77,7 +79,6 @@ function onEachFeature(feature, layer) {
     });
 }
 
-//awaiting functioning 'statesData' object to execute
 geojson = L.geoJson(statesData, {
     style: style,
     onEachFeature: onEachFeature
@@ -94,8 +95,8 @@ info.onAdd = function (map) {
 
 // method that we will use to update the control based on feature properties passed
 info.update = function (props) {
-    this._div.innerHTML = '<h4>US Population Density</h4>' +  (props ?
-        '<b>' + props.name + '</b><br />' + props.density + ' people / mi<sup>2</sup>'
+    this._div.innerHTML = '<h4>Covid Stats</h4>' +  (props ?
+        '<b>' + props.name + '</b><br />' +' Deaths: ' + props.deaths + '</b><br />' + 'Positive Cases: ' + props.positiveCases 
         : 'Hover over a state');
 };
 
@@ -111,19 +112,6 @@ function resetHighlight(e) {
     "..."  //added quotes, line kept erroing out without quotes
     info.update();
 }
-//CSS FOR CONTROL
-//.info {
-//    padding: 6px 8px;
-//    font: 14px/16px Arial, Helvetica, sans-serif;
-//    background: white;
-//    background: rgba(255,255,255,0.8);
-//    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-//    border-radius: 5px;
-//}
-//.info h4 {
-//    margin: 0 0 5px;
-//    color: #777;
-//}
 const legend = L.control({position: 'bottomright'});
 
 legend.onAdd = function (map) {
@@ -143,16 +131,4 @@ legend.onAdd = function (map) {
 };
 
 legend.addTo(map);
-//additional css style for control
-    //        .legend {
-    //    line-height: 18px;
-    //    color: #555;
-    //}
-    //.legend i {
-    //    width: 18px;
-    //    height: 18px;
-    //    float: left;
-    //    margin-right: 8px;
-    //    opacity: 0.7;
-    //}
 }
