@@ -38,27 +38,34 @@ function style(feature) {
 }
 
 L.geoJson(statesData, {style: style}).addTo(map);
-        async function getMap(){
-            const response = await fetch (api_url)
-            const data = await response.json();
-            const {latitude, longitude } = data;
-        }
+
+async function getMap(){
+    const response = await fetch (api_url)
+    const data = await response.json();
+    const {latitude, longitude } = data;
+}
+
 //event listener for layer mouseover
-function highlightFeature(e) {
+function highlightState(e) {
     const layer = e.target;
     layer.setStyle({
         weight: 5,
-        color: '#525252',
+        color: '#ffffff',
         dashArray: '',
-        fillOpacity: 0.9
+        fillOpacity: 0.7
     });
 
     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
         layer.bringToFront();
     }
 }
+
 //mouseoutevent will reset layer style to default        
 function resetHighlight(e) {
+    geojson.resetStyle(e.target);
+}
+
+function resetStateHighlight(e) {
     geojson.resetStyle(e.target);
 }
 
@@ -73,9 +80,9 @@ function zoomToFeature(e) {
 //listeners added to state layers, onhover states will highlight, other interactions can be added here
 function onEachFeature(feature, layer) {
     layer.on({
-        mouseover: highlightFeature,
-        mouseout: resetHighlight,
-        click: zoomToFeature
+        mouseout: resetStateHighlight,
+        click: zoomToFeature,
+        mouseover: highlightState
     });
 }
 
