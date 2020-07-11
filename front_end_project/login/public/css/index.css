@@ -9,26 +9,45 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: green;
-    height: 190vh;
+    height: 197vh;
+}
+
+button:focus {
+    outline: none;
+}
+
+input:focus {
+    outline: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.x {
+    position: absolute;
+    color: rgb(255, 0, 0);
+    right: 0;
+    top: 0;
+    z-index: 10;
+    font-size: 30px;
 }
 
 .navbar {
     display: flex;
-    height: 10vh;
-    width: 80%;
-    border-radius: 50px;
+    height: 12vh;
+    width: 100%;
     background-color: #e2f3f5;
-    position: absolute;
-    left: 10%;
-    top: 50px;
+    position: sticky;
+    top: 0px;
     justify-content: space-between;
-    box-shadow: #dddddd 2px 20px 15px,
+    box-shadow: #dddddd 2px 1px 5px,
         #eeeeee -8px -0px 15px;
-    z-index: 10;
+    z-index: 10000000;
+    transition: .5s;
 }
 
-.navbar>div>h1 {
+.navbar>div>.titlesite {
     position: absolute;
     left: 5%;
     top: 29px;
@@ -46,7 +65,7 @@ body {
     margin: 30px 30px;
     text-decoration: none;
     color: #581B98;
-    font-size: 15px;
+    font-size: 19px;
     font-weight: bold;
     transition: .3s;
     padding: 5px 18px;
@@ -61,7 +80,7 @@ body {
 }
 
 
-.navbar>div>.updates {
+.navbar>div>.login {
     background-color: #581B98;
     color: white;
     padding: 5px;
@@ -77,14 +96,33 @@ body {
     transition: .3s;
 }
 
-.navbar>div>.updates:hover {
+.navbar>div>.login>a {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar>div>.login:hover {
     box-shadow: #969b9c 1px 10px 10px;
     margin-top: -1px;
 }
 
+.transform {
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom: 1px solid darkgrey;
+    background-color: #ffffff;
+    color: white;
+    transition: transform 1.9s, opacity 0.2s;
+    transform-origin: left;
+}
+
+
+
+
 .mainpage {
     position: relative;
-    top: 180px;
+    top: 130px;
     left: 10%;
     background-color: #e2f3f5;
     height: 180vh;
@@ -92,8 +130,8 @@ body {
     justify-content: center;
     width: 80%;
     border-radius: 40px;
-    box-shadow: #dddddd 8px 40px 15px,
-        #eeeeee -8px -0px 15px;
+    box-shadow: #dddddd 2px 40px 25px,
+        #eeeeee -1px -0px 15px;
     margin-bottom: 50px;
 }
 
@@ -141,7 +179,7 @@ body {
     right: 0;
     bottom: 0;
     border-radius: 40px;
-    box-shadow: #969b9c 2px 10px 10px;
+    box-shadow: #969b9c 2px 10px 15px;
     transition: .3s;
 }
 
@@ -155,16 +193,18 @@ body {
 
 .mainpage>.heroimage {
     position: absolute;
-    right: 2%;
+    right: 5%;
     top: 100px;
     height: auto;
     width: auto;
+
 }
 
 .heroimage>img {
     height: 550px;
     width: 700px;
     border-radius: 40px;
+    box-shadow: #969b9c 1px 30px 24px;
     min-width: 200px;
     min-height: 350px;
 }
@@ -180,39 +220,35 @@ body {
     top: 45%;
     background-color: #ffffff;
     overflow-y: scroll;
-    border-radius: 40px;
-    box-shadow: #969b9c 2px 10px 10px;
+    border-radius: 40px 20px 20px 40px;
+    box-shadow: #969b9c 2px 20px 20px;
 }
 
 .actualsite::-webkit-scrollbar {
-    width: 8px;
+    width: 18px;
     background-color: #F5F5F5;
-    float: left;
-    margin: 20px;
-    padding: 20px;
     background-color: #c2c2c2;
-    border-radius: 10px;
-
+    border-radius: 0 14px 14px 0;
 }
 
 .actualsite::-webkit-scrollbar-thumb {
     background-color: #581B98;
-    border-radius: 10px;
     height: 2px;
     position: relative;
     margin: auto;
+    border-radius: 0 14px 14px 0;
 }
 
 
 
-.actualsite>.purpleblock {
+.actualsite>.blueblock {
     background: #0E153A;
     height: 10vh;
     width: 100%;
     position: sticky;
     top: 0;
     left: 0;
-    z-index: 5;
+    z-index: 15;
 }
 
 .actualsite>.container {
@@ -229,44 +265,213 @@ body {
     width: 100%;
     position: absolute;
     top: 50px;
-    text-align: right;
-    background-image: url(news.jpg);
+    display: flex;
+    justify-content: center;
+    background-image: url(cd.jpg);
     background-size: cover;
+    background-attachment: fixed;
+}
+
+.actualsite>.container>.content1>div {
+    position: absolute;
+    width: 90%;
+    top: 40%;
+    left: 0;
+    z-index: 5;
+    height: 12vh;
+    font-size: 40px;
+    background-color: #581B98;
+    color: white;
+    margin: auto;
+    padding-top: 10px;
+    padding-left: 10px;
+    border-radius: 0 80px 80px 0px;
 }
 
 
+.box {
+    height: 10vh;
+    width: 100%;
+    position: absolute;
+    top: 25%;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.box>.slogan {
+    margin: auto 20px;
+    color: #0E153A;
+
+}
+
+.box>div {
+    margin: auto;
+    width: 40%;
+    color: #969b9c;
+}
+
+.box>.inputbutton>.thisbutton {
+    margin: auto;
+    height: 48px;
+    width: 200px;
+    background-color: #581B98;
+    color: white;
+    font-weight: bold;
+    padding: 8px;
+    border: 1px rgb(230, 230, 230) solid;
+    border-radius: 0px 30px 30px 0;
+    ;
+    box-shadow: 2px 7px 7px lightgray;
+}
+
+.box>.inputbutton>input {
+    height: 46px;
+    width: 250px;
+    border-radius: 30px 0 0 30px;
+    box-shadow: -2px 7px 7px lightgray;
+    border: 1px rgb(230, 230, 230) solid;
+    padding-left: 20px;
+}
+
+.container>.headlines {
+    height: 8vh;
+    width: 90%;
+}
+
+.container>.headlines>.headlinesinner {
+    display: flex;
+    height: 5vh;
+    width: 95%;
+    position: absolute;
+    top: 29%;
+    justify-content: space-between;
+}
+
+.container>.headlines>.headlinesinner>ul {
+    display: flex;
+    list-style: none;
+}
+
+.container>.headlines>.headlinesinner>ul>a {
+    margin: auto 27px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    transition: .3s;
+    font-size: 14px;
+    border-right: #969b9c 2px solid;
+    border-left: #969b9c 2px solid;
+    padding: 0px 17px;
+}
+
+.container>.headlines>.headlinesinner>ul>a:hover {
+    color: #581B98;
+}
+
+.container>.headlines>.headlinesinner>h2 {
+    margin: auto 25px;
+    color: #0E153A;
+}
+
 .actualsite>.container>.content2 {
-    height: 40vh;
+    height: 60vh;
     width: 35%;
     position: absolute;
-    right: 10%;
-    bottom: 0px;
+    left: 5%;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
     text-align: left;
+}
+
+.actualsite>.container>.content2>h3 {
+    color: #0E153A;
 }
 
 .actualsite>.container>.content2>img {
     height: 30vh;
     width: 100%;
+    position: relative;
+    top: 2%;
+    margin-bottom: 20px;
 }
+
+.actualsite>.container>.content2>a {
+    color: rgb(100, 100, 100);
+    text-decoration: none;
+    border-bottom: 1px solid rgb(209, 209, 209);
+    padding-bottom: 3px;
+    margin: 10px 2px;
+}
+
 
 .actualsite>.container>.content3 {
-    height: 30vh;
+    height: 60vh;
     width: 35%;
     position: absolute;
-    left: 10%;
-    bottom: 0px;
+    right: 5%;
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    text-align: left;
 }
 
+.actualsite>.container>.content2>h3 {
+    color: #0E153A;
+}
 
-.container>.headlines {
-    display: flex;
-    height: 5vh;
+.actualsite>.container>.content3>img {
+    height: 60vh;
     width: 100%;
-    position: absolute;
-    top: 40%;
-    background-color: #581B98;
+    position: relative;
+    top: 2%;
+    margin-bottom: 20px;
+}
 
+.actualsite>.container>.content3>a {
+    color: rgb(100, 100, 100);
+    text-decoration: none;
+    border-bottom: 1px solid rgb(209, 209, 209);
+    padding-bottom: 3px;
+    margin: 10px 2px;
+}
+
+.actualsite>.container>.content4 {
+    height: 40vh;
+    width: 50%;
+    position: absolute;
+    left: 5%;
+    bottom: 18%;
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    text-align: left;
+}
+
+.actualsite>.container>.content4>h3 {
+    color: #0E153A;
+}
+
+.actualsite>.container>.content4>img {
+    height: 40vh;
+    width: 100%;
+    position: relative;
+    top: 2%;
+    margin-bottom: 20px;
+}
+
+.actualsite>.container>.content4>a {
+    color: rgb(100, 100, 100);
+    text-decoration: none;
+    border-bottom: 1px solid rgb(209, 209, 209);
+    padding-bottom: 3px;
+    margin: 10px 2px;
+}
+
+footer {
+    height: 16vh;
+    width: 100%;
+    background-color: #0E153A;
+    position: absolute;
+    bottom: 0;
 }

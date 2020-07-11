@@ -4,92 +4,182 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="css/index.css" rel="stylesheet"
+  <!-- <link href="css/index.css" rel="stylesheet"
   <link rel="stylesheet" type="text/css" href="css/index.css" />
-  <title>Main Page Edit</title>
+  <title>Main Page Edit</title> -->
+
+  
+  <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/index.css" type="text/css"/>
+    <!--css loaded -->
+    <link rel="stylesheet" href="css/leaflet.css" />
+    <!--js library loaded -->
+    <script src="css/leaflet.js"></script>
+    <script src="https://leafletjs.com/examples/choropleth/us-states.js"></script>
+    <!--map height set -->
+    <style>
+      #mapid {
+        height: 500px;
+      }
+    </style>
+
+
 </head>
+
+<script src="css/main.js" type="module"></script>
+
+  <script src="css/map.js" type="module"></script>
+
 <body>
     <!-- <h1>Hi <%= name %></h1>
     <form action="/logout?_method=DELETE" method="POST">
     <button type="submit">Log Out</button> -->
     <!-- !-- </form> -->
-    <div class="navbar">
-      <div>
-          <h1><%= name %></h1>
-      </div>
-      <div>
-          <ul>
-              <a href="">
-                  <li>Home</li>
-              </a>
-              <a href="hotspots.html">
-                  <li>Hot Spots</li>
-              </a>
-              <a href="">
-                  <li>Stuff</li>
-              </a>
-              <a href="">
-                  <li>Get Help</li>
-              </a>
-              <a href="">
-                  <li>Contact Us</li>
-              </a>
-          </ul>
-      </div>
-      <div><button id="updates" class="updates">Login</button></div>
+    
 
-  </div>
-  <div id="mainpage" class="mainpage">
-      <div id="herotext" class="herotext">
+    <div class="navbar">
+        <div>
+          <!-- Displays name -->
+          <h1 class="titlesite">Hi <%= name %></h1>
+        </div>
+        <div>
+          <ul>
+            <a id="home" href="">
+              <li>Home</li>
+            </a>
+            <a href="#mapid">
+              <li>Covid Map</li>
+            </a>
+            <a
+              id="stuff"
+              href="https://www.cdc.gov/coronavirus/2019-ncov/index.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2Findex.html"
+            >
+              <li>Learn more at cdc</li>
+            </a>
+            <a id="help" href="">
+              <li>Q&A</li>
+            </a>
+          </ul>
+        </div>
+        <div>
+            <form action="/logout?_method=DELETE" method="POST">
+              <!-- <button id="login" class="login"><a href="login.ejs">Login</a></button> -->
+              <button class="login" id="login" type="submit">Log Out</a></button>
+            </form>  
+        </div>
+      </div>
+      <div id="mainpage" class="mainpage">
+        <div id="herotext" class="herotext">
           <h1>This is a Covid Mock Site</h1>
-          <h4>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde, placeat!</h4>
-          
+          <a
+            >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde,
+            placeat!</a
+          >
+  
           <p>This is where we mock the page</p>
           <button id="herobutton" class="herobutton">Your Text Here</button>
-      </div>
-
-      <div id="heroimage" class="heroimage">
-          <img src="covid.jpg" alt="">
-      </div>
-      <div class="actualsite">
-          <div class="purpleblock"></div>
+        </div>
+  
+        <div id="heroimage" class="heroimage">
+          <img src="css/ny.jpg" alt="" />
+        </div>
+        <div id="site" class="actualsite">
+          <div class="blueblock"></div>
           <div class="container">
-              <div class="content1">
-
+            <div id="mapid" style="display: hidden;"></div>
+            <div class="content1">
+              <div>
+                <h1>Get News Updates On The Go</h1>
               </div>
-              <div class="headlines">
-                  <ul>
-                      <a href="">
-                          <li>Headline1</li>
-                      </a>
-                      <a href="">
-                          <li>Headline2</li>
-                      </a>
-                      <a href="">
-                          <li>Headline3</li>
-                      </a>
-                      <a href="">
-                          <li>Headline4</li>
-                      </a>
-                      <a href="">
-                          <li>Headline5</li>
-                      </a>
-                  </ul>
+            </div>
+            <div class="box">
+              <h1 class="slogan">News you can count on</h1>
+              <div>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Voluptates, eaque.
+                </p>
               </div>
-
-              <div class="content2">
-                  <img src="closed.jpg" alt="">
-                  <h3>Trillions of stores closing worldwide</h3>
+              <div class="inputbutton">
+                <input type="text" name="" id="" /><button class="thisbutton">
+                  Your zip-code
+                </button>
               </div>
-              <div class="content3">
-                  <h3>Trillions of stores closing worldwide</h3>
+            </div>
+            <div class="headlines">
+              <div class="headlinesinner">
+                <ul>
+                  <a href="">
+                    <li>Covid Updates</li>
+                  </a>
+                  <a href="">
+                    <li>NBA Returning</li>
+                  </a>
+                  <a href="">
+                    <li>Food Shortages</li>
+                  </a>
+                  <a href="">
+                    <li>Voting Deadlines</li>
+                  </a>
+                  <a href="">
+                    <li>Social Distancing</li>
+                  </a>
+                </ul>
+                <h2>Local Coverage</h2>
               </div>
-          </div>
-
-      </div>
-  </div>
-
-<!-- </form> -->
+            </div>
+  
+            <div class="content2">
+              <h3 id="go">Trillions of stores closing worldwide</h3>
+              <img src="css/closed.jpg" alt="" />
+              <a href=""
+                >Lorem ipsum dolor, sit amet consectetur adipisicing elit.</a
+              >
+              <a href=""
+                >Lorem ipsum dolor, sit amet consectetur adipisicing elit.</a
+              >
+              <a href=""
+                >Lorem ipsum dolor, sit amet consectetur adipisicing elit.</a
+              >
+              <a href=""
+                >Lorem ipsum dolor, sit amet consectetur adipisicing elit.</a
+              >
+            </div>
+            <div class="content3">
+              <h3>Controversial Mona Lisa Painting has government buzzing</h3>
+              <img src="css/monalisacovid.jpg" alt="" />
+              <a href=""
+                >Lorem ipsum dolor, sit amet consectetur adipisicing elit.</a
+              >
+              <a href=""
+                >Lorem ipsum dolor, sit amet consectetur adipisicing elit.</a
+              >
+              <a href=""
+                >Lorem ipsum dolor, sit amet consectetur adipisicing elit.</a
+              >
+              <a href=""
+                >Lorem ipsum dolor, sit amet consectetur adipisicing elit.</a
+              >
+              <a href=""
+                >Lorem ipsum dolor, sit amet consectetur adipisicing elit.</a
+              >
+            </div>
+            <div class="content4">
+              <h3>
+                Why you need to learn trading and the effect it has on the economy
+              </h3>
+              <img src="css/chart.jpg" alt="" />
+              <a href=""
+                >Lorem ipsum dolor, sit amet consectetur adipisicing elit. ovnw
+                IWwc</a
+              >
+              <a href=""
+                >Lorem ipsum dolor, sit amet consectetur adipisicing elit.</a
+              >
+            </div>
 </body>
 </html>
 

@@ -1,4 +1,3 @@
-
 if (process.env.NODE_ENV !== 'production') {
   // Load in all enviroment variables and set them
     require('dotenv').config()
