@@ -1,1 +1,158 @@
 /* Css Code for the register view */
+* {
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+    font-family: 'Work Sans';
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+}
+
+button:focus {
+    outline: none;
+}
+
+input:focus {
+    outline: none;
+}
+
+.signupcontainer {
+    height: 80vh;
+    width: 80%;
+    border-radius: 50px;
+    box-shadow: #dddddd 2px 40px 25px,
+        #eeeeee -1px -0px 15px;
+    position: relative;
+    left: 10%;
+    display: flex;
+    justify-content: center;
+}
+
+.signupcontainer>.left {
+    height: 100%;
+    width: 30%;
+    position: absolute;
+    left: 0;
+    background-color: #e2f3f5;
+    border-radius: 50px 0 0 50px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.signupcontainer>.left>h1 {
+    position: absolute;
+    top: 100px;
+    font-size: 44px;
+    color: #34105a;
+}
+
+.signupcontainer>.left>h2 {
+    color: #581B98;
+    position: absolute;
+    top: 200px;
+    font-size: 44px;
+}
+
+.signupcontainer>.left>.hype {
+    color: #581B98;
+    background-color: white;
+    position: absolute;
+    bottom: 250px;
+    font-size: 17px;
+    font-weight: bold;
+    height: 65px;
+    width: 250px;
+    border-radius: 40px;
+    border: none;
+    box-shadow: #a8b6b8 -9px 12px 12px;
+}
+
+.signupcontainer>.right {
+    height: 100%;
+    width: 70%;
+    background-color: #581B98;
+    /* transform: skewY(-5deg);
+    transform-origin: top left; */
+    border-radius: 0px 50px 50px 0px;
+    position: absolute;
+    right: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.right>.title {
+    color: white;
+    font-size: 50px;
+    position: absolute;
+    top: 16%;
+}
+
+.right>.whiteblock {
+    height: 3px;
+    width: 50%;
+    background-color: white;
+    position: absolute;
+    top: 25%;
+}
+
+.right>.inputs {
+    height: 40%;
+    width: 43%;
+    position: absolute;
+    top: 32%;
+}
+
+.right>.inputs>h2 {
+    text-align: left;
+
+}
+
+.right>.inputs>input {
+    width: 100%;
+    height: 50px;
+    margin: 12px 10px;
+    border: 1px solid darkgrey;
+    border-radius: 4px;
+    padding-left: 10px;
+    font-size: 17px;
+    box-shadow: #34105a -7px 12px 12px;
+}
+
+.right>.inputs>input::placeholder {
+    color: #581B98;
+}
+
+.right>.news {
+    position: absolute;
+    bottom: 14%;
+    height: auto;
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.news>.signmeup {
+    height: 50px;
+    width: 150px;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    color: #581B98;
+    font-weight: bold;
+    font-size: 15px;
+    border: none;
+    border-radius: 40px;
+    transition: .3s;
+}
+
+.signmeup:hover {
+    margin-top: -5px;
+    box-shadow: #34105a -4px 19px 12px;
+}
