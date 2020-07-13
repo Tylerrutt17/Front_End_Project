@@ -1,0 +1,144 @@
+* {
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+    font-family: 'Work Sans';
+}
+
+body {
+    height: 120vh;
+    display: flex;
+    justify-content: center;
+
+}
+
+.maincontainer {
+    height: 100vh;
+    width: 80%;
+    margin-top: 70px;
+    position: relative;
+    background-color: #e2f3f5;
+    border-radius: 50px 20px 20px 50px;
+    box-shadow: #dddddd 2px 40px 25px,
+        #eeeeee -1px -0px 15px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+
+.maincontainer::-webkit-scrollbar {
+    width: 18px;
+    background-color: #F5F5F5;
+    background-color: #c2c2c2;
+    border-radius: 0 14px 14px 0;
+}
+
+.maincontainer::-webkit-scrollbar-thumb {
+    background-color: #581B98;
+    height: 2px;
+    position: relative;
+    margin: auto;
+    border-radius: 0 14px 14px 0;
+}
+
+.herotext {
+    position: absolute;
+    top: 3%;
+    left: 10%;
+    font-size: 50px;
+    color: #0E153A;
+}
+
+.title {
+    position: absolute;
+    left: 5%;
+    top: 19%;
+    height: 20vh;
+    width: 90%;
+    text-align: center;
+    line-height: 50px;
+}
+
+.title>.back {
+    height: 30%;
+    width: 70%;
+    background-color: #581B98;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 30px;
+
+}
+
+.title>h1 {
+    color: #581B98;
+    font-size: 45px;
+    margin-top: 20px;
+}
+
+.divofques {
+    height: 80%;
+    width: 80%;
+    position: relative;
+    left: 20%;
+    top: 50%;
+}
+
+.divofques>.reveal {
+    position: absolute;
+    left: 55%;
+}
+
+.questiondiv {
+    background-color: rgb(255, 255, 255);
+    height: 10%;
+    width: 80%;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 2px 7px 7px 2px;
+    text-align: left;
+    transition: .3s;
+    box-shadow: #8f9a9b -3px 10px 10px;
+    border-left: darkslateblue 7px solid;
+}
+
+.questiondiv>.question {
+    color: #0E153A;
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.questiondiv>.answer1,
+.answer2,
+.answer3,
+.answer4,
+.answer5,
+.answer6,
+.answer7,
+.answer8 {
+    color: #0E153A;
+    font-size: 13px;
+    line-height: 17px;
+
+}
+
+.questiondiv:hover {}
+
+.divofques {
+    height: 80%;
+    width: 80%;
+    position: absolute;
+    left: 20%;
+    top: 41%;
+}
+
+.divofques2 {
+    height: 80%;
+    width: 80%;
+    position: absolute;
+    left: 20%;
+    top: 95%;
+}

@@ -39,147 +39,151 @@
     <button type="submit">Log Out</button> -->
     <!-- !-- </form> -->
     
-
+    <p id="home"></p>
     <div class="navbar">
-        <div>
-          <!-- Displays name -->
-          <h1 class="titlesite">Hi <%= name %></h1>
-        </div>
-        <div>
-          <ul>
-            <a id="home" href="">
-              <li>Home</li>
-            </a>
-            <a href="#mapid">
-              <li>Covid Map</li>
-            </a>
+      <div>
+        <h1 class="titlesite">Hi <%= name %></h1>
+      </div>
+      <div>
+        <ul class="listof">
+          <a id="home" href="#home">
+            <li>Home</li>
+          </a>
+          <a id="mapid1" href="#goto">
+            <li>Covid Map</li>
+          </a>
+          <a
+            id="stuff"
+            href="https://www.cdc.gov/coronavirus/2019-ncov/index.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2Findex.html"
+          >
+            <li>Learn more at cdc</li>
+          </a>
+          <a id="help" href="/faq">
+            <li>Q&A</li>
+          </a>
+          <div class="burger"><i class="fas fa-bars"></i></div>
+        </ul>
+      </div>
+      <div>
+        <!-- <button id="login" class="login">Logout</a></button> -->
+        <form action="/logout?_method=DELETE" method="POST">
+          <button id="login" class="login" type="submit">Log Out</button>
+        </form>
+      </div>
+    </div>
+    <div id="mainpage" class="mainpage">
+      <div id="herotext" class="herotext">
+        <h1>This is a Covid Mock Site</h1>
+        <a
+          >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde,
+          placeat!</a
+        >
+
+        <p>This is where we mock the page</p>
+        <button id="herobutton" class="herobutton">
+          <a style="text-decoration: none;">Click Here</a>
+        </button>
+      </div>
+
+      <div id="heroimage" class="heroimage">
+        <img src="css/ny.jpg" alt="" />
+      </div>
+      <div id="site" class="actualsite">
+        <div class="blueblock"></div>
+        <div id="" class="container">
+          <div id="mapid"></div>
+          <div class="content1">
+            <div>
+              <h1>Get News Updates On The Go</h1>
+            </div>
+          </div>
+          <div class="box">
+            <h1 id="goto" class="slogan">Covid Tracker</h1>
+            <!-- <div>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptates, eaque.
+              </p>
+            </div>
+            <div class="inputbutton">
+              <input type="text" name="" id="" /><button class="thisbutton">
+                Your zip-code
+              </button>
+            </div> -->
+          </div>
+          <div class="headlines">
+            <div class="headlinesinner">
+              <ul>
+                <a
+                  href="https://www.cnn.com/world/live-news/coronavirus-pandemic-07-12-20-intl/index.html"
+                >
+                  <li>Covid Updates</li>
+                </a>
+                <a
+                  href="https://www.nba.com/nba-returns-2020-faq#:~:text=The%20NBA%20season%20is%20set,start%20date%20of%20July%2030."
+                >
+                  <li>NBA Returning</li>
+                </a>
+                <a
+                  href="https://www.latimes.com/food/story/2020-06-09/coronavirus-outbreak-food-shortage"
+                >
+                  <li>Food Shortages</li>
+                </a>
+                <a href="https://www.vote.org/voter-registration-deadlines/">
+                  <li>Voting Deadlines</li>
+                </a>
+                <a
+                  href="https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/social-distancing.html"
+                >
+                  <li>Social Distancing</li>
+                </a>
+              </ul>
+              <!-- <h2>Local Coverage</h2> -->
+            </div>
+          </div>
+
+          <div class="content3">
+            <h3>
+              Controversial Mona Lisa Painting has government buzzing
+            </h3>
+            <img src="css/monalisacovid.jpg" alt="" />
             <a
-              id="stuff"
-              href="https://www.cdc.gov/coronavirus/2019-ncov/index.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2Findex.html"
+              href="https://www.nba.com/nba-returns-2020-faq#:~:text=The%20NBA%20season%20is%20set,start%20date%20of%20July%2030."
+              >NBA Players mixed feelings about season starting so soon</a
             >
-              <li>Learn more at cdc</li>
-            </a>
-            <a id="help" href="">
-              <li>Q&A</li>
-            </a>
-          </ul>
-        </div>
-        <div>
-            <form action="/logout?_method=DELETE" method="POST">
-              <!-- <button id="login" class="login"><a href="login.ejs">Login</a></button> -->
-              <button class="login" id="login" type="submit">Log Out</a></button>
-            </form>  
+          </div>
+          <div class="content4">
+            <h3>
+              <a
+                href="https://www.cnn.com/2020/06/27/business/stores-closing-coronavirus-june/index.html"
+                style="color: black; text-decoration: none;"
+                >Trillions of stores closing worldwide</a
+              >
+            </h3>
+            <img src="css/closed.jpg" alt="closed stores" />
+            <a
+              href="https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/disinfecting-your-home.html"
+              >See how you can keep your house clean during quarantine</a
+            >
+          </div>
+          <footer>
+            <ul>
+              <a href="https://www.youtube.com/channel/UCupvZG-5ko_eiXAupbDfxWw"
+                ><li><i class="fab fa-youtube"></i></li
+              ></a>
+              <a
+                href="https://twitter.com/CDCgov?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+                ><li><i class="fab fa-twitter"></i></li
+              ></a>
+              <a href="https://www.facebook.com/CDC"
+                ><li><i class="fab fa-facebook-f"></i></li
+              ></a>
+            </ul>
+            <h2>Copyright Covid Pro 2020 <i class="far fa-copyright"></i></h2>
+          </footer>
         </div>
       </div>
-      <div id="mainpage" class="mainpage">
-        <div id="herotext" class="herotext">
-          <h1>This is a Covid Mock Site</h1>
-          <a
-            >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde,
-            placeat!</a
-          >
-  
-          <p>This is where we mock the page</p>
-          <button id="herobutton" class="herobutton">Your Text Here</button>
-        </div>
-  
-        <div id="heroimage" class="heroimage">
-          <img src="css/ny.jpg" alt="" />
-        </div>
-        <div id="site" class="actualsite">
-          <div class="blueblock"></div>
-          <div class="container">
-            <div id="mapid" style="display: hidden;"></div>
-            <div class="content1">
-              <div>
-                <h1>Get News Updates On The Go</h1>
-              </div>
-            </div>
-            <div class="box">
-              <h1 class="slogan">News you can count on</h1>
-              <div>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Voluptates, eaque.
-                </p>
-              </div>
-              <div class="inputbutton">
-                <input type="text" name="" id="" /><button class="thisbutton">
-                  Your zip-code
-                </button>
-              </div>
-            </div>
-            <div class="headlines">
-              <div class="headlinesinner">
-                <ul>
-                  <a href="">
-                    <li>Covid Updates</li>
-                  </a>
-                  <a href="">
-                    <li>NBA Returning</li>
-                  </a>
-                  <a href="">
-                    <li>Food Shortages</li>
-                  </a>
-                  <a href="">
-                    <li>Voting Deadlines</li>
-                  </a>
-                  <a href="">
-                    <li>Social Distancing</li>
-                  </a>
-                </ul>
-                <h2>Local Coverage</h2>
-              </div>
-            </div>
-  
-            <div class="content2">
-              <h3 id="go">Trillions of stores closing worldwide</h3>
-              <img src="css/closed.jpg" alt="" />
-              <a href=""
-                >Lorem ipsum dolor, sit amet consectetur adipisicing elit.</a
-              >
-              <a href=""
-                >Lorem ipsum dolor, sit amet consectetur adipisicing elit.</a
-              >
-              <a href=""
-                >Lorem ipsum dolor, sit amet consectetur adipisicing elit.</a
-              >
-              <a href=""
-                >Lorem ipsum dolor, sit amet consectetur adipisicing elit.</a
-              >
-            </div>
-            <div class="content3">
-              <h3>Controversial Mona Lisa Painting has government buzzing</h3>
-              <img src="css/monalisacovid.jpg" alt="" />
-              <a href=""
-                >Lorem ipsum dolor, sit amet consectetur adipisicing elit.</a
-              >
-              <a href=""
-                >Lorem ipsum dolor, sit amet consectetur adipisicing elit.</a
-              >
-              <a href=""
-                >Lorem ipsum dolor, sit amet consectetur adipisicing elit.</a
-              >
-              <a href=""
-                >Lorem ipsum dolor, sit amet consectetur adipisicing elit.</a
-              >
-              <a href=""
-                >Lorem ipsum dolor, sit amet consectetur adipisicing elit.</a
-              >
-            </div>
-            <div class="content4">
-              <h3>
-                Why you need to learn trading and the effect it has on the economy
-              </h3>
-              <img src="css/chart.jpg" alt="" />
-              <a href=""
-                >Lorem ipsum dolor, sit amet consectetur adipisicing elit. ovnw
-                IWwc</a
-              >
-              <a href=""
-                >Lorem ipsum dolor, sit amet consectetur adipisicing elit.</a
-              >
-            </div>
+    </div>
 </body>
 </html>
 
