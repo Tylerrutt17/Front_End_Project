@@ -34,7 +34,7 @@ if (process.env.NODE_ENV !== 'production') {
   
   app.use(session({
     // Key that is kept secret that is going to encrypt all of the information
-    secret: process.env.SESSION_SECRET,
+    secret: 'keyboard cat',
     // disable resaving of session variables if nothings changed
     resave: false,
     saveUninitialized: false
