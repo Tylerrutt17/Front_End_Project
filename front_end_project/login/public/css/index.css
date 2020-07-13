@@ -670,10 +670,8 @@ input:focus {
 }
 
 .herotext>.herobutton:hover {
-    background-color: white;
     color: #581b98;
     bottom: 3px;
-
     cursor: pointer;
 }
 
