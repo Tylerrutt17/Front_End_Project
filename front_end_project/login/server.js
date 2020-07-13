@@ -51,6 +51,19 @@ if (process.env.NODE_ENV !== 'production') {
   app.get('/login', checkNotAuthenticated, (req, res) => {
     res.render('login.ejs')
   })
+
+  app.get('/faq', (req, res) => {
+    res.render('faq.ejs')
+  })
+
+  app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
+    // where does it go when there is a success
+    successRedirect: '/',
+    failureRedirect: '/login',
+    failureFlash: true
+  }))
+
+
   
   app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
     // where does it go when there is a success
