@@ -8,7 +8,7 @@
 ## RUNNING THE PROJECT
 * How to run the project.
 * Open a new terminal
-* 'cd Front_End_Project/front_end_project/login'
+* 'cd front_end_project/login'
 * 'npm run devStart' // To Start the Server
 * Open up http://localhost:8000/ in your browser
 
