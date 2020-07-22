@@ -9,7 +9,7 @@
 * How to run the project.
 * Open a new terminal
 * 'cd front_end_project/login'
-* 'npm install node'
+* make sure to install all of the node modules inside the Package.json file.
 * 'npm run devStart' // To Start the Server
 * Open up http://localhost:8000/ in your browser
 
