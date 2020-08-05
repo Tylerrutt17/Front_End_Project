@@ -11,6 +11,12 @@ if (process.env.NODE_ENV !== 'production') {
   const session = require('express-session')
   const methodOverride = require('method-override')
   const pgp = require('pg-promise')() // Sql
+  var bodyParser = require('body-parser')
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+app.use(bodyParser.json())
 
   const LocalStrategy = require('passport-local').Strategy
 
@@ -19,7 +25,7 @@ if (process.env.NODE_ENV !== 'production') {
   //const initializePassport = require('./passport-config')
 
   // Connection to Elephant SQL database   // Pg proimse
-  const database = pgp('Enter your database link here')
+  const database = pgp('postgres://refrxuce:ROqL7x5m8aoDKNG5BewWMJ2sJWSOJcru@ruby.db.elephantsql.com:5432/refrxuce')
 
   initialize(
     passport,
@@ -35,7 +41,7 @@ if (process.env.NODE_ENV !== 'production') {
 
   // Basically just telling the server that I want to be able to access
   // The form variables inside of the request variable inside the post method // Way of capturing variables
-  app.use(express.urlencoded({ extended: false }))
+  //app.use(express.urlencoded({ extended: false }))
   app.use(flash())
   
   // Static Files
@@ -75,13 +81,7 @@ if (process.env.NODE_ENV !== 'production') {
   
   function addUser(req, res, next) {
     database.one(`SELECT * FROM front_users WHERE email='${req.body.email}'`)
-    .then(student=> {
-        var user = {
-            name: student.name,
-            email: student.email,
-            password: student.password,
-            id: student.id 
-        }
+    .then(user=> {
         // Add user to users array
         currentUser.push(user)
         //res.locals.user = user
@@ -97,7 +97,6 @@ if (process.env.NODE_ENV !== 'production') {
   app.post('/register', checkNotAuthenticated, async (req, res) => {
     // Name is used in the initiation of fields in each view, ID of sorts
     try {
-
       // req.body.password is the password field value
       const hashedPassword = await bcrypt.hash(req.body.password, 10)
       
